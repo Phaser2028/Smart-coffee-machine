@@ -1,4 +1,4 @@
-# -smart-coffee-machine
+# -smart-coffee-machine-
 coffee machine with timer and display on arduino platform
 
 
