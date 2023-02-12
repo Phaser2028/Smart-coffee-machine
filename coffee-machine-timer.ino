@@ -18,7 +18,6 @@ uint8_t c_H,c_M;
 
 
 
-
 int detectButton() {
   int keyAnalog =  analogRead(A0);
   if (keyAnalog < 100) {
@@ -37,7 +36,6 @@ int detectButton() {
     delay(300);
     return BTN_SELECT;
   } else {
-    // Все остальные значения (до 1023) будут означать, что нажатий не было
     return BTN_NONE;
   }
 }
@@ -146,21 +144,13 @@ void setup() {
   Serial.begin(9600);
   watch.begin();
   lcd.begin(16,2);
-  pinMode(PIN_RELAY, OUTPUT); // Объявляем пин реле как выход
-  digitalWrite(PIN_RELAY, HIGH); // Выключаем реле - посылаем высокий сигнал
-  
+  pinMode(PIN_RELAY, OUTPUT); 
+  digitalWrite(PIN_RELAY, HIGH);  
 }
 
 
 void loop(){
   int button = detectButton();
-
-
-
-
-
-
-  
 
   switch (button) {
     case BTN_UP:
@@ -169,11 +159,19 @@ void loop(){
     else{
       minute_up();
     }
+     
       break;
+      
+      
     case BTN_DOWN:
-    if (q%2==1){
-     hour_down();}
-    else{
+      
+    if (q%2==1)
+    {
+     hour_down();
+    }
+      
+    else
+    {
       minute_down();
     }
       break;
@@ -223,15 +221,3 @@ void loop(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    
